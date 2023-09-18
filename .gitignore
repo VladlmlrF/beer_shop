@@ -128,8 +128,6 @@ ENV/
 env.bak/
 venv.bak/
 
-my_env.py
-
 # Spyder project settings
 .spyderproject
 .spyproject
