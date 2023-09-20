@@ -1,0 +1,85 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if category and country %}
+        {{ category.name }} beer from {{ country.name }}
+    {% elif category %}
+        {{ category.name }} beer
+    {% elif country %}
+        Beer from {{ country.name }}
+    {% else %}
+        Products
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <p class="d-inline-flex gap-1">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category">
+                            Category
+                        </a>
+                    </p>
+                    {% for category in categories %}
+                        <div class="collapse" id="category">
+                            <a href="{% if not country %}{{ category.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=category.slug country_slug=country.slug %}{% endif %}">
+                                {{ category.name }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="d-inline-flex gap-1">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#country" role="button" aria-expanded="false" aria-controls="country">
+                            Country
+                        </a>
+                    </p>
+                    {% for country in countries %}
+                        <div class="collapse" id="country">
+                            <a href="{% if not category %}{{ country.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=category.slug country_slug=country.slug %}{% endif %}">
+                                {{ country.name }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block content%}
+    <h1>
+        {% if category and country %}
+            {{ category.name }} beer from {{ country.name }}
+        {% elif category %}
+            {{ category.name }} beer
+        {% elif country %}
+            Beer from {{ country.name }}
+        {% else %}
+            Products
+        {% endif %}
+    </h1>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for product in products %}
+            <div class="col">
+                <div class="card text-bg-success mb-3 h-100">
+                    <div class="card-body">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="card-img-top">
+                        </a>
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p>{{ product.category }}</p>
+                        <p>Made in {{ product.country }}</p>
+                        <p class="card-text">${{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

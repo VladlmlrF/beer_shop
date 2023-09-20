@@ -1,0 +1,40 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+    <div class="card text-bg-warning mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{ product.name }}</h3>
+                    <h2 class="card-text">
+                        ${{ product.price }}
+                    </h2>
+                    <p class="card-text">
+                        <a href="{{ product.category.get_absolute_url }}">
+                            {{ product.category }}
+                        </a>
+                    </p>
+                    strength {{ product.strength }}%
+                    {{ product.description|linebreaks }}
+                    <p class="card-text">
+                        <small class="text-body-secondary">
+                            <a href="{{ product.country.get_absolute_url }}">
+                                Made in {{ product.country }}
+                            </a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
