@@ -13,46 +13,37 @@
     {% endif %}
 {% endblock %}
 
-{% block sidebar %}
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>
-                    <p class="d-inline-flex gap-1">
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category">
-                            Category
-                        </a>
-                    </p>
-                    {% for category in categories %}
-                        <div class="collapse" id="category">
-                            <a href="{% if not country %}{{ category.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=category.slug country_slug=country.slug %}{% endif %}">
-                                {{ category.name }}
-                            </a>
-                        </div>
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="d-inline-flex gap-1">
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#country" role="button" aria-expanded="false" aria-controls="country">
-                            Country
-                        </a>
-                    </p>
-                    {% for country in countries %}
-                        <div class="collapse" id="country">
-                            <a href="{% if not category %}{{ country.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=category.slug country_slug=country.slug %}{% endif %}">
-                                {{ country.name }}
-                            </a>
-                        </div>
-                    {% endfor %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-{% endblock %}
-
 {% block content%}
+<div id="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      <li {% if not category %}class="selected"{% endif %}>
+        <a href="{% if not country %}{% url 'shop:product_list' %}{% else %}{{ country.get_absolute_url }}{% endif %}">All</a>
+      </li>
+      {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{% if not country %}{{ c.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=c.slug country_slug=country.slug %}{% endif %}">
+              {{ c.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <h3>Country</h3>
+    <ul>
+      <li {% if not country %}class="selected"{% endif %}>
+        <a href="{% if not category %}{% url 'shop:product_list' %}{% else %}{{ category.get_absolute_url }}{% endif %}">All</a>
+      </li>
+      {% for c in countries %}
+        <li {% if country.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{% if not category %}{{ c.get_absolute_url }}{% else %}{% url 'shop:product_list_by_category_and_by_country' category_slug=category.slug country_slug=c.slug %}{% endif %}">
+              {{ c.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+
+<div id="main" class="product-list">
     <h1>
         {% if category and country %}
             {{ category.name }} beer from {{ country.name }}
@@ -82,4 +73,5 @@
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}

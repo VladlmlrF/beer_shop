@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
-
+from cart.forms import CartAddProductForm
 from .models import Product, Category, Country
 
 
@@ -39,3 +39,11 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/product/detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddProductForm()
+        return context
+
+
+def index_page(request):
+    return redirect('shop:product_list')
