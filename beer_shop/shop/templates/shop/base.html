@@ -23,7 +23,15 @@
                 </ul>
             </div>
             <div class="navbar-nav me-1 mb-2 mb-lg-0">
-                <a class="nav-link" href="#">Your cart is empty</a>
+                {% with total_items=cart|length %}
+                    {% if total_items > 0 %}
+                        <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                            Your cart: {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                        </a>
+                    {% else %}
+                        Your cart is empty.
+                    {% endif %}
+                {% endwith %}
             </div>
         </div>
     </nav>
