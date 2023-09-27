@@ -48,7 +48,7 @@ def admin_order_pdf(request, order_id):
     context = {'order': order}
     html = template.render(context)
     result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode('UTF-8')), result)
     if not pdf.err:
         response = HttpResponse(result.getvalue(), content_type='application/pdf')
         response['Content-Disposition'] = f'filename=order_{order.id}.pdf'

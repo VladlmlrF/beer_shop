@@ -22,6 +22,10 @@
     margin-top:10px;
 }
 
+.product-detail .country {
+    text-decoration: none;
+}
+
 #content {
     padding:0 100px;
     overflow:hidden;
@@ -46,10 +50,12 @@
 
 #sidebar ul li a {
     display:block;
+    text-decoration: none;
+    color: #212529;
 }
 
 #sidebar ul li.selected {
-    background:#5993bb;
+    background:#198754;
     border-radius:4px;
 }
 
@@ -150,22 +156,4 @@ table#cart img {
 
 .recommendations.cart img {
     width:120px;
-}
-
-.languages ul {
-    list-style:none;
-    margin:0;
-    padding:0;
-    float:left;
-}
-
-.languages ul li {
-    float:left;
-    margin:0 0 0 10px;
-    font-size:14px;
-}
-
-.languages p {
-    float:left;
-    margin:0;
 }

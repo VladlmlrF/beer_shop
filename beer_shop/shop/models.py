@@ -47,9 +47,9 @@ class Country(TranslatableModel):
 
 class Product(TranslatableModel):
     translations = TranslatedFields(
-        name = models.CharField(max_length=200),
-        slug = models.SlugField(max_length=200),
-        description = models.TextField(blank=True),
+        name=models.CharField(max_length=200),
+        slug=models.SlugField(max_length=200),
+        description=models.TextField(blank=True),
     )
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     country = models.ForeignKey(Country, related_name='products', on_delete=models.CASCADE)

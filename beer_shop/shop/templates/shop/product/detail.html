@@ -13,7 +13,7 @@
         <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="img-fluid rounded-start">
         <h1>{{ product.name }}</h1>
         <h2>
-            <a href="{{ product.category.get_absolute_url }}">
+            <a href="{{ product.category.get_absolute_url }}" class="btn btn-primary">
             {{ product.category }}
             </a>
         </h2>
@@ -21,15 +21,13 @@
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input type="submit" value="{% trans 'Add to cart' %}">
+            <input class="btn btn-success" type="submit" value="{% trans 'Add to cart' %}">
         </form>
         strength {{ product.strength }}%
         {{ product.description|linebreaks }}
-        <small class="text-body-secondary">
-            <a href="{{ product.country.get_absolute_url }}">
-                Made in {{ product.country }}
-            </a>
-        </small>
+        <a href="{{ product.country.get_absolute_url }}" class="country">
+            Made in {{ product.country }}
+        </a>
 
         {% if recommended_products %}
             <div class="recommendations">
