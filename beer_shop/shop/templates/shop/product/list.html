@@ -1,24 +1,25 @@
 {% extends 'shop/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}
     {% if category and country %}
-        {{ category.name }} beer from {{ country.name }}
+        {{ category.name }} {% trans 'beer from' %} {{ country.name }}
     {% elif category %}
-        {{ category.name }} beer
+        {{ category.name }} {% trans 'beer' %}
     {% elif country %}
-        Beer from {{ country.name }}
+        {% trans 'Beer from' %} {{ country.name }}
     {% else %}
-        Products
+        {% trans 'Products' %}
     {% endif %}
 {% endblock %}
 
 {% block content%}
 <div id="sidebar">
-    <h3>Categories</h3>
+    <h3>{% trans 'Categories' %}</h3>
     <ul>
       <li {% if not category %}class="selected"{% endif %}>
-        <a href="{% if not country %}{% url 'shop:product_list' %}{% else %}{{ country.get_absolute_url }}{% endif %}">All</a>
+        <a href="{% if not country %}{% url 'shop:product_list' %}{% else %}{{ country.get_absolute_url }}{% endif %}">{% trans 'All' %}</a>
       </li>
       {% for c in categories %}
         <li {% if category.slug == c.slug %}class="selected"{% endif %}>
@@ -28,10 +29,10 @@
         </li>
       {% endfor %}
     </ul>
-    <h3>Country</h3>
+    <h3>{% trans 'Country' %}</h3>
     <ul>
       <li {% if not country %}class="selected"{% endif %}>
-        <a href="{% if not category %}{% url 'shop:product_list' %}{% else %}{{ category.get_absolute_url }}{% endif %}">All</a>
+        <a href="{% if not category %}{% url 'shop:product_list' %}{% else %}{{ category.get_absolute_url }}{% endif %}">{% trans 'All' %}</a>
       </li>
       {% for c in countries %}
         <li {% if country.slug == c.slug %}class="selected"{% endif %}>
@@ -46,13 +47,13 @@
 <div id="main" class="product-list">
     <h1>
         {% if category and country %}
-            {{ category.name }} beer from {{ country.name }}
+            {{ category.name }} {% trans 'beer from' %} {{ country.name }}
         {% elif category %}
-            {{ category.name }} beer
+            {{ category.name }} {% trans 'beer' %}
         {% elif country %}
-            Beer from {{ country.name }}
+            {% trans 'Beer from' %} {{ country.name }}
         {% else %}
-            Products
+            {% trans 'Products' %}
         {% endif %}
     </h1>
 
@@ -66,7 +67,7 @@
                         </a>
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p>{{ product.category }}</p>
-                        <p>Made in {{ product.country }}</p>
+                        <p>{% trans 'Made in' %} {{ product.country }}</p>
                         <p class="card-text">${{ product.price }}</p>
                     </div>
                 </div>

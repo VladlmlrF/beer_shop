@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-26 16:21+0700\n"
+"PO-Revision-Date: 2023-09-26 09:23+0000\n"
+"Last-Translator:   <vova@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: beer_shop/settings.py:123
+msgid "English"
+msgstr "Английский"
+
+#: beer_shop/settings.py:124
+msgid "Russian"
+msgstr "Русский"
+
+#: beer_shop/urls.py:12
+msgid "cart/"
+msgstr "корзина/"
+
+#: beer_shop/urls.py:13
+msgid "orders/"
+msgstr "заказы/"
+
+#: beer_shop/urls.py:14
+msgid "payment/"
+msgstr "оплата/"
+
+#: beer_shop/urls.py:15
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "купоны/"
+
+#: cart/forms.py:9 cart/templates/cart/detail.html:16
+#: payment/templates/payment/process.html:17
+msgid "Quantity"
+msgstr "Количество"
+
+#: cart/templates/cart/detail.html:6 cart/templates/cart/detail.html:10
+msgid "Your shopping cart"
+msgstr "Ваша корзина"
+
+#: cart/templates/cart/detail.html:14
+#: payment/templates/payment/process.html:14
+msgid "Image"
+msgstr "Изображение"
+
+#: cart/templates/cart/detail.html:15
+#: payment/templates/payment/process.html:15
+msgid "Product"
+msgstr "Продукт"
+
+#: cart/templates/cart/detail.html:17
+msgid "Remove"
+msgstr "Удалить"
+
+#: cart/templates/cart/detail.html:18
+msgid "Unit price"
+msgstr "Цена за единицу продукции"
+
+#: cart/templates/cart/detail.html:19
+#: payment/templates/payment/process.html:16
+msgid "Price"
+msgstr "Цена"
+
+#: cart/templates/cart/detail.html:69
+#: payment/templates/payment/process.html:18
+msgid "Total"
+msgstr "Итого"
+
+#: cart/templates/cart/detail.html:78
+#: shop/templates/shop/product/detail.html:36
+msgid "People who bought this also bought"
+msgstr "Люди, купившие это, также купили"
+
+#: cart/templates/cart/detail.html:90
+msgid "Apply a coupon"
+msgstr "Применить купон"
+
+#: cart/templates/cart/detail.html:98
+msgid "Continue shopping"
+msgstr "Продолжить покупки"
+
+#: cart/templates/cart/detail.html:100
+msgid "Checkout"
+msgstr "Оформить заказ"
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr "Купон"
+
+#: payment/templates/payment/canceled.html:5
+msgid "Payment canceled"
+msgstr "Платеж отменен"
+
+#: payment/templates/payment/canceled.html:9
+msgid "Your payment has not been processed"
+msgstr "Ваш платеж не прошел"
+
+#: payment/templates/payment/canceled.html:10
+msgid "There was a problem processing your payment."
+msgstr "Возникла проблема с обработкой вашего платежа."
+
+#: payment/templates/payment/completed.html:5
+msgid "Payment successful"
+msgstr "Оплата прошла успешно"
+
+#: payment/templates/payment/completed.html:9
+msgid "Your payment was successful"
+msgstr "Ваша оплата прошла успешно"
+
+#: payment/templates/payment/completed.html:10
+msgid "Your payment has been processed successfully."
+msgstr "Ваш платеж успешно прошел."
+
+#: payment/templates/payment/process.html:6
+msgid "Pay your order"
+msgstr "Оплатить заказ"
+
+#: payment/templates/payment/process.html:10
+msgid "Order summary"
+msgstr "Содержание заказа"
+
+#: payment/templates/payment/process.html:36
+msgid "Subtotal"
+msgstr "Промежуточный итог"
+
+#: payment/urls.py:9
+msgid "process/"
+msgstr "процесс/"
+
+#: payment/urls.py:10
+msgid "completed/"
+msgstr "завершено/"
+
+#: payment/urls.py:11
+#| msgid "Payment canceled"
+msgid "canceled/"
+msgstr "отменено/"
+
+#: shop/templates/shop/base.html:8 shop/templates/shop/base.html:15
+msgid "Beer shop"
+msgstr "Beer shop"
+
+#: shop/templates/shop/base.html:22
+msgid "Home"
+msgstr "Домой"
+
+#: shop/templates/shop/base.html:30
+msgid "Your cart"
+msgstr "Ваша корзина"
+
+#: shop/templates/shop/base.html:30
+msgid "item"
+msgstr "позиция"
+
+#: shop/templates/shop/base.html:33
+msgid "Your cart is empty."
+msgstr "Ваша корзина пуста."
+
+#: shop/templates/shop/product/detail.html:24
+msgid "Add to cart"
+msgstr "Добавить в корзину"
+
+#: shop/templates/shop/product/list.html:7
+#: shop/templates/shop/product/list.html:50
+msgid "beer from"
+msgstr "пиво из"
+
+#: shop/templates/shop/product/list.html:9
+#: shop/templates/shop/product/list.html:52
+msgid "beer"
+msgstr "пиво"
+
+#: shop/templates/shop/product/list.html:11
+#: shop/templates/shop/product/list.html:54
+msgid "Beer from"
+msgstr "Пиво из"
+
+#: shop/templates/shop/product/list.html:13
+#: shop/templates/shop/product/list.html:56
+msgid "Products"
+msgstr "Товары"
+
+#: shop/templates/shop/product/list.html:19
+msgid "Categories"
+msgstr "Категории"
+
+#: shop/templates/shop/product/list.html:22
+#: shop/templates/shop/product/list.html:35
+msgid "All"
+msgstr "Все"
+
+#: shop/templates/shop/product/list.html:32
+msgid "Country"
+msgstr "Страны"
+
+#: shop/templates/shop/product/list.html:70
+msgid "Made in"
+msgstr "Сделано в"
